@@ -1,0 +1,55 @@
+<idea-plugin>
+    <id>com.claudeplugin.android-generator</id>
+    <name>Claude Android Generator</name>
+    <vendor email="dev@claudeplugin.com" url="https://claudeplugin.com">ClaudePlugin</vendor>
+
+    <description><![CDATA[
+        AI-powered Android code generator using Claude API.<br/>
+        Generate full projects, screens, RecyclerViews, and Room databases from natural language descriptions.
+        <br/><br/>
+        Features:
+        <ul>
+            <li>Generate entire Android projects from TZ (technical specification)</li>
+            <li>Create new screens: Activity + ViewModel + Layout</li>
+            <li>Generate RecyclerView: Adapter + ViewHolder + Item Layout</li>
+            <li>Generate Room Database: Entity + DAO + Database</li>
+        </ul>
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow
+            id="Claude Generator"
+            secondary="false"
+            icon="/icons/claude_icon.svg"
+            anchor="right"
+            factoryClass="com.claudeplugin.ui.ClaudeToolWindowFactory"/>
+    </extensions>
+
+    <actions>
+        <group id="ClaudeGeneratorGroup" text="Claude AI" description="Claude AI Code Generator" popup="true">
+            <add-to-group group-id="NewGroup" anchor="last"/>
+            <action
+                id="GenerateFullProject"
+                class="com.claudeplugin.actions.GenerateFullProjectAction"
+                text="🤖 Claude: Generate Android Project"
+                description="Generate full Android project from TZ"/>
+            <action
+                id="GenerateScreen"
+                class="com.claudeplugin.actions.GenerateScreenAction"
+                text="🤖 Claude: New Screen (MVVM)"
+                description="Generate Activity + ViewModel + Layout"/>
+            <action
+                id="GenerateRecyclerView"
+                class="com.claudeplugin.actions.GenerateRecyclerViewAction"
+                text="🤖 Claude: New RecyclerView"
+                description="Generate Adapter + ViewHolder + Item Layout"/>
+            <action
+                id="GenerateRoomDatabase"
+                class="com.claudeplugin.actions.GenerateRoomAction"
+                text="🤖 Claude: New Room Database"
+                description="Generate Entity + DAO + Database"/>
+        </group>
+    </actions>
+</idea-plugin>
