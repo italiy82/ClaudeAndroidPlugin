@@ -71,7 +71,7 @@ class ClaudeGeneratorDialog(
     private var lastResponse = ""
 
     init {
-        this.title = title
+        setTitle(title)
         init()
         setSize(700, 650)
     }
